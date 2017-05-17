@@ -1,11 +1,15 @@
+"""."""
 import io
 import random
 dictionary = {}
-def trigrams(text = 'temp.txt'):
+
+
+def trigrams(text='temp.txt'):
+    """."""
     word1 = ''
     word2 = ''
     temp = ''
-    fi = io.open(text, encoding ='utf-8')
+    fi = io.open(text, encoding='utf-8')
     for line in fi:
         for word in line.split():
             if word1 == '':
@@ -13,8 +17,8 @@ def trigrams(text = 'temp.txt'):
             elif word2 == '':
                 word2 = word
             else:
-                temp = word1 +' '+ word2
-                if  temp in dictionary:
+                temp = word1 + ' ' + word2
+                if temp in dictionary:
                     ltemp = dictionary[temp]
                     ltemp.append(word)
                     dictionary[temp] = ltemp
@@ -23,6 +27,7 @@ def trigrams(text = 'temp.txt'):
                 word1 = word2
                 word2 = word
     print(dictionary.items())
+<<<<<<< HEAD:scr/testpy.py
 def getRandom(x):
     from random import randint
     return randint(0,x -1)
@@ -50,3 +55,6 @@ def build_words(n):
     print(result)
 
                 
+=======
+trigrams()
+>>>>>>> 8f8747f376a56cad6d96fedde512094135cd7687:src/trigrams.py
