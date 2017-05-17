@@ -14,11 +14,9 @@ def trigrams(text = 'temp.txt'):
             else:
                 temp = word1 +' '+ word2
                 if  temp in dictionary:
-                    print(dictionary[temp])
                     ltemp = dictionary[temp]
-                    ltemp.appened(word)
-                    print(ltemp)
-                    dictionary[temp] = dictionary[temp].append(word)
+                    ltemp.append(word)
+                    dictionary[temp] = ltemp
                 else:
                     dictionary[temp] = [word]
                 word1 = word2
