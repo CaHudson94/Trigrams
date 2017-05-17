@@ -1,3 +1,4 @@
+"""Setup for trigrams.py."""
 from setuptools import setup
 
 extra_packages = {
@@ -14,7 +15,7 @@ setup(
     license='MIT',
     py_modules=['trigrams'],
     package_dir={'': 'src'},
-    install_requires='',
+    install_requires=['random', 'io', 'sys'],
     extras_require=extra_packages,
     entry_points={
         'console_scriptes': [

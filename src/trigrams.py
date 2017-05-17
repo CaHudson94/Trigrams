@@ -5,7 +5,7 @@ import sys
 dictionary = {}
 
 
-def main(text='temp.txt', n='20'):
+def main(text='temp.txt', n='21'):
     """."""
     build_dict(text)
     build_words(int(n))
@@ -33,7 +33,6 @@ def build_dict(text='temp.txt'):
                     dictionary[temp] = [word]
                 word1 = word2
                 word2 = word
-                return
 
 
 def getrandom(x):
@@ -66,7 +65,7 @@ def build_words(n):
             word2 = leng[1]
     print(result)
 
-print(sys.argv)
+
 main()
 
 
