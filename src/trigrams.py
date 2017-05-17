@@ -26,11 +26,13 @@ def trigrams(text='temp.txt'):
                     dictionary[temp] = [word]
                 word1 = word2
                 word2 = word
-    print(dictionary.items())
-<<<<<<< HEAD:scr/testpy.py
+                
+                
 def getRandom(x):
     from random import randint
     return randint(0,x -1)
+
+
 def build_words(n):
     lent = random.choice(list(dictionary.keys()))
     leng = lent.split()
@@ -54,7 +56,5 @@ def build_words(n):
             word2 = leng[1]
     print(result)
 
-                
-=======
+
 trigrams()
->>>>>>> 8f8747f376a56cad6d96fedde512094135cd7687:src/trigrams.py
