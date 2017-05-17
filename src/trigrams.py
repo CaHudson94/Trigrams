@@ -1,10 +1,17 @@
 """."""
 import io
 import random
+import sys
 dictionary = {}
 
 
-def trigrams(text='temp.txt'):
+def main(text='temp.txt', n='20'):
+    """."""
+    build_dict(text)
+    build_words(int(n))
+
+
+def build_dict(text='temp.txt'):
     """."""
     word1 = ''
     word2 = ''
@@ -26,35 +33,40 @@ def trigrams(text='temp.txt'):
                     dictionary[temp] = [word]
                 word1 = word2
                 word2 = word
-                
-                
-def getRandom(x):
+                return
+
+
+def getrandom(x):
+    """."""
     from random import randint
-    return randint(0,x -1)
+    return randint(0, x - 1)
 
 
 def build_words(n):
+    """."""
     lent = random.choice(list(dictionary.keys()))
     leng = lent.split()
     word1 = leng[0]
     word2 = leng[1]
     result = leng[0].capitalize()
-    result = result + ' ' +leng[1]
-    for x in range(0,n- 2):
-        temp = word1 +  ' ' +word2
-        tlist =list( dictionary[temp])
-        o = getRandom(len(tlist))
+    result = result + ' ' + leng[1]
+    for x in range(0, n - 2):
+        temp = word1 + ' ' + word2
+        tlist = list(dictionary[temp])
+        o = getrandom(len(tlist))
         new_word = tlist[o]
-        result = result + ' '+ new_word
+        result = result + ' ' + new_word
         word1 = word2
         word2 = new_word
-        testWord = word1 + ' '+ word2
-        if testWord not in dictionary:
+        testword = word1 + ' ' + word2
+        if testword not in dictionary:
             lent = random.choice(list(dictionary.keys()))
             leng = lent.split()
             word1 = leng[0]
             word2 = leng[1]
     print(result)
 
+print(sys.argv)
+main()
 
-trigrams()
+

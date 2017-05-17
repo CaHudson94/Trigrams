@@ -22,7 +22,7 @@ def test_build_dict(word_pair, result_list):
 
 
 @pytest.mark.parametrize('word_pair, result_list', DICT_PARAMS)
-def test_choose_third(word_pair, result_list):
+def test_build_words(word_pair, result_list):
     """."""
     from trigrams import choose_third
     assert choose_third(word_pair) in result_list
