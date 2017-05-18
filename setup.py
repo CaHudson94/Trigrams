@@ -15,7 +15,7 @@ setup(
     license='MIT',
     py_modules=['trigrams'],
     package_dir={'': 'src'},
-    install_requires=['random', 'io', 'sys', 'os'],
+    install_requires=[],
     extras_require=extra_packages,
     entry_points={
         'console_scriptes': [

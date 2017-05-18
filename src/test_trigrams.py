@@ -23,20 +23,20 @@ test_dict = {
 
 @pytest.mark.parametrize('word_pair, result_list', DICT_PARAMS)
 def test_build_dict(word_pair, result_list):
-    """."""
+    """Test the build_dict function."""
     from trigrams import build_dict
     assert build_dict()[word_pair] == result_list
 
 
 def test_get_random():
-    """."""
+    """Test the get_random function."""
     from trigrams import get_random
     for n in range(1, 100):
         assert get_random(n) in range(n)
 
 
 def test_build_words():
-    """."""
+    """Test the build_words function."""
     from trigrams import build_words
     for n in range(10, 100):
         assert len(build_words(n, test_dict).split()) == n
