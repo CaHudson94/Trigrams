@@ -8,7 +8,7 @@ extra_packages = {
 
 setup(
     name='trigrams',
-    desctription='Implements the Ackermann function.',
+    desctription='Implements the Trigrams function.',
     version='0.1',
     author='Chris Hudson, James Feore, Sean Beseler',
     author_email='c.ahudson84@yahoo.com, bob@bob.com, seanwbeseler@gmail.com',
