@@ -5,7 +5,7 @@ import sys
 import os
 
 
-def main(text='temp.txt', n='21'):
+def main(text='temp.txt', n='21'): # pragma: no cover
     """
     The main function which calls the other functions.
     Dose checks to see if the file has anything in it and secondly
@@ -51,7 +51,7 @@ def build_dict(text='temp.txt'):
                         dictionary[temp] = [word]
                     word1 = word2
                     word2 = word
-        elif len(words_from_file) < 3:
+        elif len(words_from_file) < 3: # pragma: no cover
             return
     print(dictionary)
     return dictionary
@@ -91,7 +91,7 @@ def build_words(n, dictionary):
     return result
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     if (len(sys.argv) == 3):
         print(main(sys.argv[1], sys.argv[2]))
     else:
