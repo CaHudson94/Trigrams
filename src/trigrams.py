@@ -1,4 +1,4 @@
-"""."""
+"""A program to build a file made of trigrams from a sample document."""
 import io
 import random
 import sys
@@ -6,10 +6,15 @@ import os
 
 
 def main(text='temp.txt', n='21'):
-    """."""
+    """
+    The main function which calls the other functions and performs a check
+    to see if the file has anything in it and secondly if the dictionary
+    has been written to.
+    """
     if os.path.isfile(text):
         if os.stat(text).st_size >= 1:
             dictionary = build_dict(text)
+            """This will only return false if there are 1-2 words in the file."""
             if dictionary:
                 n = int(n)
                 return build_words(n, dictionary)
@@ -21,7 +26,7 @@ def main(text='temp.txt', n='21'):
 
 
 def build_dict(text='temp.txt'):
-    """."""
+    """Builds the dictionary for trigram constrution of a new file."""
     dictionary = {}
     word1 = ''
     word2 = ''
@@ -51,13 +56,17 @@ def build_dict(text='temp.txt'):
 
 
 def get_random(x):
-    """."""
+    """Outputs a random int in a input variant range."""
     from random import randint
     return randint(0, x - 1)
 
 
 def build_words(n, dictionary):
-    """."""
+    """
+    Constructs the output text given the input dictionary and the desired lengh
+    of the output file. Calls out for a random int for with the len() of the
+    values of each key.
+    """
     lent = random.choice(list(dictionary.keys()))
     leng = lent.split()
     word1 = leng[0]
