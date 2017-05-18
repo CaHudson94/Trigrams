@@ -2,17 +2,22 @@
 import io
 import random
 import sys
-dictionary = {}
+import os
 
 
 def main(text='temp.txt', n='21'):
     """."""
-    build_dict(text)
-    build_words(int(n))
+    if os.path.isfile(text):
+        dictionary = build_dict(text)
+        n = int(n)
+        return build_words(n, dictionary)
+    else:
+        return 'Please enter a valid file name'
 
 
 def build_dict(text='temp.txt'):
     """."""
+    dictionary = {}
     word1 = ''
     word2 = ''
     temp = ''
@@ -33,15 +38,16 @@ def build_dict(text='temp.txt'):
                     dictionary[temp] = [word]
                 word1 = word2
                 word2 = word
+    return dictionary
 
 
-def getrandom(x):
+def get_random(x):
     """."""
     from random import randint
     return randint(0, x - 1)
 
 
-def build_words(n):
+def build_words(n, dictionary):
     """."""
     lent = random.choice(list(dictionary.keys()))
     leng = lent.split()
@@ -52,7 +58,7 @@ def build_words(n):
     for x in range(0, n - 2):
         temp = word1 + ' ' + word2
         tlist = list(dictionary[temp])
-        o = getrandom(len(tlist))
+        o = get_random(len(tlist))
         new_word = tlist[o]
         result = result + ' ' + new_word
         word1 = word2
@@ -63,9 +69,11 @@ def build_words(n):
             leng = lent.split()
             word1 = leng[0]
             word2 = leng[1]
-    print(result)
+    return result
 
 
-main()
-
-
+if __name__ == '__main__':
+    if (len(sys.argv) == 3):
+        print(main(sys.argv[1], sys.argv[2]))
+    else:
+        print(main())
