@@ -1,13 +1,14 @@
 """A program to build a file made of trigrams from a sample document."""
 import io
-import random
 import sys
 import os
+from random import randint, choice
 
 
-def main(text='temp.txt', n='21'): # pragma: no cover
+def main(text='temp.txt', n='21'):  # pragma: no cover
     """
     The main function which calls the other functions.
+
     Dose checks to see if the file has anything in it and secondly
     if the dictionary has been written to.
     """
@@ -51,24 +52,26 @@ def build_dict(text='temp.txt'):
                         dictionary[temp] = [word]
                     word1 = word2
                     word2 = word
-        elif len(words_from_file) < 3: # pragma: no cover
-            return
-    print(dictionary)
+        elif len(words_from_file) < 3:
+            fi.close()
+            return {}
+    fi.close()
     return dictionary
 
 
 def get_random(x):
     """Output a random int in a input variant range."""
-    from random import randint
     return randint(0, x - 1)
 
 
 def build_words(n, dictionary):
-    """Construct the output text given the input dictionary and the desired length
-    of the output file. Calls out for a random int for with the len() of the
-    values of each key.
     """
-    lent = random.choice(list(dictionary.keys()))
+    Construct the output text.
+
+    Take the input dictionary and the desired length of the output file.
+    Calls out for a random int for with the len() of the values of each key.
+    """
+    lent = choice(list(dictionary.keys()))
     leng = lent.split()
     word1 = leng[0]
     word2 = leng[1]
@@ -84,14 +87,14 @@ def build_words(n, dictionary):
         word2 = new_word
         testword = word1 + ' ' + word2
         if testword not in dictionary:
-            lent = random.choice(list(dictionary.keys()))
+            lent = choice(list(dictionary.keys()))
             leng = lent.split()
             word1 = leng[0]
             word2 = leng[1]
     return result
 
 
-if __name__ == '__main__': # pragma: no cover
+if __name__ == '__main__':  # pragma: no cover
     if (len(sys.argv) == 3):
         print(main(sys.argv[1], sys.argv[2]))
     else:

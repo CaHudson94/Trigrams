@@ -1,8 +1,6 @@
 """Tests for trigrams.py."""
 
-
 import pytest
-
 
 DICT_PARAMS = [
     ('and was', ['hot', 'shown']),
@@ -21,11 +19,25 @@ test_dict = {
 }
 
 
+SMALL_DICT_PARAMS = {
+    ('one_word.txt', False),
+    ('two_word.txt', False),
+    ('no_words.txt', False)
+}
+
+
 @pytest.mark.parametrize('word_pair, result_list', DICT_PARAMS)
 def test_build_dict(word_pair, result_list):
     """Test the build_dict function."""
     from trigrams import build_dict
     assert build_dict()[word_pair] == result_list
+
+
+@pytest.mark.parametrize('to_small_dict, result_dict', SMALL_DICT_PARAMS)
+def test_bad_build_dict(to_small_dict, result_dict):
+    """Test if dict is empty or to small."""
+    from trigrams import build_dict
+    assert build_dict(to_small_dict) == {}
 
 
 def test_get_random():
